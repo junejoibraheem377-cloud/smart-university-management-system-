@@ -1,0 +1,888 @@
+// ==================================================
+// SUMS - SMART UNIVERSITY MANAGEMENT SYSTEM
+// COMBINED JAVASCRIPT
+// ==================================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // ==================================================
+    // LOGIN
+    // ==================================================
+
+    const loginForm = document.getElementById("loginForm");
+
+    if (loginForm) {
+
+        loginForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (email === "admin@sums.com" && password === "admin123") {
+
+                alert("Login Successful! Welcome to SUMS.");
+
+                window.location.href = "dashboard.html";
+
+            } else {
+
+                alert("Invalid Email or Password!");
+
+            }
+
+        });
+
+    }
+
+
+    // ==================================================
+    // STUDENT MANAGEMENT
+    // ==================================================
+
+    const studentForm = document.getElementById("studentForm");
+
+    if (studentForm) {
+
+        const studentTableBody =
+            document.getElementById("studentTableBody");
+
+        const searchStudent =
+            document.getElementById("searchStudent");
+
+        let students =
+            JSON.parse(localStorage.getItem("students")) || [];
+
+
+        function displayStudents(studentList = students) {
+
+            studentTableBody.innerHTML = "";
+
+            studentList.forEach(function (student) {
+
+                studentTableBody.innerHTML += `
+                    <tr>
+                        <td>${student.name}</td>
+                        <td>${student.roll}</td>
+                        <td>${student.email}</td>
+                        <td>${student.department}</td>
+                        <td>
+                            <button
+                                class="action-btn"
+                                onclick="deleteStudent('${student.roll}')">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+
+            });
+
+        }
+
+
+        studentForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const student = {
+
+                name: document
+                    .getElementById("studentName")
+                    .value.trim(),
+
+                roll: document
+                    .getElementById("rollNumber")
+                    .value.trim(),
+
+                email: document
+                    .getElementById("studentEmail")
+                    .value.trim(),
+
+                department: document
+                    .getElementById("department")
+                    .value
+
+            };
+
+
+            students.push(student);
+
+            localStorage.setItem(
+                "students",
+                JSON.stringify(students)
+            );
+
+            studentForm.reset();
+
+            displayStudents();
+
+        });
+
+
+        searchStudent.addEventListener("input", function () {
+
+            const value = this.value.toLowerCase();
+
+            const filtered = students.filter(function (student) {
+
+                return (
+                    student.name.toLowerCase().includes(value) ||
+                    student.roll.toLowerCase().includes(value)
+                );
+
+            });
+
+            displayStudents(filtered);
+
+        });
+
+
+        window.deleteStudent = function (roll) {
+
+            students = students.filter(function (student) {
+                return student.roll !== roll;
+            });
+
+            localStorage.setItem(
+                "students",
+                JSON.stringify(students)
+            );
+
+            displayStudents();
+
+        };
+
+
+        displayStudents();
+
+    }
+
+
+    // ==================================================
+    // TEACHER MANAGEMENT
+    // ==================================================
+
+    const teacherForm = document.getElementById("teacherForm");
+
+    if (teacherForm) {
+
+        const teacherTableBody =
+            document.getElementById("teacherTableBody");
+
+        const searchTeacher =
+            document.getElementById("searchTeacher");
+
+        let teachers =
+            JSON.parse(localStorage.getItem("teachers")) || [];
+
+
+        function displayTeachers(teacherList = teachers) {
+
+            teacherTableBody.innerHTML = "";
+
+            teacherList.forEach(function (teacher) {
+
+                teacherTableBody.innerHTML += `
+                    <tr>
+                        <td>${teacher.name}</td>
+                        <td>${teacher.id}</td>
+                        <td>${teacher.email}</td>
+                        <td>${teacher.department}</td>
+                        <td>
+                            <button
+                                class="action-btn"
+                                onclick="deleteTeacher('${teacher.id}')">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+
+            });
+
+        }
+
+
+        teacherForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const teacher = {
+
+                name: document
+                    .getElementById("teacherName")
+                    .value.trim(),
+
+                id: document
+                    .getElementById("teacherId")
+                    .value.trim(),
+
+                email: document
+                    .getElementById("teacherEmail")
+                    .value.trim(),
+
+                department: document
+                    .getElementById("teacherDepartment")
+                    .value
+
+            };
+
+
+            teachers.push(teacher);
+
+            localStorage.setItem(
+                "teachers",
+                JSON.stringify(teachers)
+            );
+
+            teacherForm.reset();
+
+            displayTeachers();
+
+        });
+
+
+        searchTeacher.addEventListener("input", function () {
+
+            const value = this.value.toLowerCase();
+
+            const filtered = teachers.filter(function (teacher) {
+
+                return (
+                    teacher.name.toLowerCase().includes(value) ||
+                    teacher.id.toLowerCase().includes(value)
+                );
+
+            });
+
+            displayTeachers(filtered);
+
+        });
+
+
+        window.deleteTeacher = function (id) {
+
+            teachers = teachers.filter(function (teacher) {
+                return teacher.id !== id;
+            });
+
+            localStorage.setItem(
+                "teachers",
+                JSON.stringify(teachers)
+            );
+
+            displayTeachers();
+
+        };
+
+
+        displayTeachers();
+
+    }
+
+
+    // ==================================================
+    // COURSE MANAGEMENT
+    // ==================================================
+
+    const courseForm = document.getElementById("courseForm");
+
+    if (courseForm) {
+
+        const courseTableBody =
+            document.getElementById("courseTableBody");
+
+        const searchCourse =
+            document.getElementById("searchCourse");
+
+        let courses =
+            JSON.parse(localStorage.getItem("courses")) || [];
+
+
+        function displayCourses(courseList = courses) {
+
+            courseTableBody.innerHTML = "";
+
+            courseList.forEach(function (course) {
+
+                courseTableBody.innerHTML += `
+                    <tr>
+                        <td>${course.name}</td>
+                        <td>${course.code}</td>
+                        <td>${course.department}</td>
+                        <td>${course.teacher}</td>
+                        <td>
+                            <button
+                                class="action-btn"
+                                onclick="deleteCourse('${course.code}')">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                ;
+
+            });
+
+        }
+
+
+        courseForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const course = {
+
+                name: document
+                    .getElementById("courseName")
+                    .value.trim(),
+
+                code: document
+                    .getElementById("courseCode")
+                    .value.trim(),
+
+                department: document
+                    .getElementById("courseDepartment")
+                    .value,
+
+                teacher: document
+                    .getElementById("courseTeacher")
+                    .value.trim()
+
+            };
+
+
+            courses.push(course);
+
+            localStorage.setItem(
+                "courses",
+                JSON.stringify(courses)
+            );
+
+            courseForm.reset();
+
+            displayCourses();
+
+        });
+
+
+        searchCourse.addEventListener("input", function () {
+
+            const value = this.value.toLowerCase();
+
+            const filtered = courses.filter(function (course) {
+
+                return (
+                    course.name.toLowerCase().includes(value) ||
+                    course.code.toLowerCase().includes(value) ||
+                    course.teacher.toLowerCase().includes(value)
+                );
+
+            });
+
+            displayCourses(filtered);
+
+        });
+
+
+        window.deleteCourse = function (code) {
+
+            courses = courses.filter(function (course) {
+                return course.code !== code;
+            });
+
+            localStorage.setItem(
+                "courses",
+                JSON.stringify(courses)
+            );
+
+            displayCourses();
+
+        };
+
+
+        displayCourses();
+
+    }
+
+
+    // ==================================================
+    // DEPARTMENT MANAGEMENT
+    // ==================================================
+
+    const departmentForm =
+        document.getElementById("departmentForm");
+
+    if (departmentForm) {
+
+        const departmentTableBody =
+            document.getElementById("departmentTableBody");
+
+        const searchDepartment =
+            document.getElementById("searchDepartment");
+
+        let departments =
+            JSON.parse(localStorage.getItem("departments")) || [];
+
+
+        function displayDepartments(
+            departmentList = departments
+        ) {
+
+            departmentTableBody.innerHTML = "";
+
+            departmentList.forEach(function (department) {
+
+                departmentTableBody.innerHTML += `
+                    <tr>
+                        <td>${department.name}</td>
+                        <td>${department.code}</td>
+                        <td>${department.head}</td>
+                        <td>${department.students}</td>
+                        <td>
+                            <button
+                                class="action-btn"
+                                onclick="deleteDepartment('${department.code}')">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+
+            });
+
+        }
+
+
+        departmentForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                const department = {
+
+                    name: document
+                        .getElementById("departmentName")
+                        .value.trim(),
+
+                    code: document
+                        .getElementById("departmentCode")
+                        .value.trim(),
+
+                    head: document
+                        .getElementById("departmentHead")
+                        .value.trim(),
+
+                    students: document
+                        .getElementById("studentCount")
+                        .value
+
+                };
+
+
+                departments.push(department);
+
+                localStorage.setItem(
+                    "departments",
+                    JSON.stringify(departments)
+                );
+
+                departmentForm.reset();
+
+                displayDepartments();
+
+            }
+        );
+
+
+        searchDepartment.addEventListener(
+            "input",
+            function () {
+
+                const value = this.value.toLowerCase();
+
+                const filtered = departments.filter(
+                    function (department) {
+
+                        return (
+                            department.name
+                                .toLowerCase()
+                                .includes(value) ||
+
+                            department.code
+                                .toLowerCase()
+                                .includes(value) ||
+
+                            department.head
+                                .toLowerCase()
+                                .includes(value)
+                        );
+
+                    }
+                );
+
+                displayDepartments(filtered);
+
+            }
+        );
+
+
+        window.deleteDepartment = function (code) {
+
+            departments = departments.filter(
+                function (department) {
+                    return department.code !== code;
+                }
+            );
+
+            localStorage.setItem(
+                "departments",
+                JSON.stringify(departments)
+            );
+
+            displayDepartments();
+
+        };
+
+
+        displayDepartments();
+
+    }
+
+
+    // ==================================================
+    // ATTENDANCE MANAGEMENT
+    // ==================================================
+
+    const attendanceForm =
+        document.getElementById("attendanceForm");
+
+    if (attendanceForm) {
+
+        const attendanceTableBody =
+            document.getElementById("attendanceTableBody");
+
+        const searchAttendance =
+            document.getElementById("searchAttendance");
+
+        let attendanceRecords =
+            JSON.parse(
+                localStorage.getItem("attendanceRecords")
+            ) || [];
+
+
+        function displayAttendance(
+            recordList = attendanceRecords
+        ) {
+
+            attendanceTableBody.innerHTML = "";
+
+            recordList.forEach(function (record) {
+
+                attendanceTableBody.innerHTML += `
+                    <tr>
+                        <td>${record.student}</td>
+                        <td>${record.roll}</td>
+                        <td>${record.course}</td>
+                        <td>${record.date}</td>
+                        <td>${record.status}</td>
+                        <td>
+                            <button
+                                class="action-btn"
+                                onclick="deleteAttendance('${record.roll}', '${record.date}', '${record.course}')">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+
+            });
+
+        }
+
+
+        attendanceForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                const record = {
+
+                    student: document
+                        .getElementById("attendanceStudent")
+                        .value.trim(),
+
+                    roll: document
+                        .getElementById("attendanceRoll")
+                        .value.trim(),
+
+                    course: document
+                        .getElementById("attendanceCourse")
+                        .value,
+
+                    date: document
+                        .getElementById("attendanceDate")
+                        .value,
+
+                    status: document
+                        .getElementById("attendanceStatus")
+                        .value
+
+                };
+
+
+                attendanceRecords.push(record);
+
+                localStorage.setItem(
+                    "attendanceRecords",
+                    JSON.stringify(attendanceRecords)
+                );
+
+                attendanceForm.reset();
+
+                displayAttendance();
+
+            }
+        );
+
+
+        searchAttendance.addEventListener(
+            "input",
+            function () {
+
+                const value = this.value.toLowerCase();
+
+                const filtered = attendanceRecords.filter(
+                    function (record) {
+
+                        return (
+                            record.student
+                                .toLowerCase()
+                                .includes(value) ||
+
+                            record.roll
+                                .toLowerCase()
+                                .includes(value)
+                        );
+
+                    }
+                );
+
+                displayAttendance(filtered);
+
+            }
+        );
+
+
+        window.deleteAttendance = function (
+            roll,
+            date,
+            course
+        ) {
+
+            attendanceRecords =
+                attendanceRecords.filter(
+                    function (record) {
+
+                        return !(
+                            record.roll === roll &&
+                            record.date === date &&
+                            record.course === course
+                        );
+
+                    }
+                );
+
+            localStorage.setItem(
+                "attendanceRecords",
+                JSON.stringify(attendanceRecords)
+            );
+
+            displayAttendance();
+
+        };
+
+
+        displayAttendance();
+
+    }
+
+
+    // ==================================================
+    // RESULTS MANAGEMENT
+    // ==================================================
+
+    const resultForm =
+        document.getElementById("resultForm");
+
+    if (resultForm) {
+
+        const resultTableBody =
+            document.getElementById("resultTableBody");
+
+        const searchResult =
+            document.getElementById("searchResult");
+
+        let results =
+            JSON.parse(localStorage.getItem("results")) || [];
+
+
+        function getGrade(marks) {
+
+            if (marks >= 80) return "A+";
+            if (marks >= 70) return "A";
+            if (marks >= 60) return "B";
+            if (marks >= 50) return "C";
+            if (marks >= 40) return "D";
+
+            return "F";
+
+        }
+
+
+        function displayResults(resultList = results) {
+
+            resultTableBody.innerHTML = "";
+
+            resultList.forEach(function (result) {
+
+                const grade = getGrade(result.marks);
+
+                const status =
+                    result.marks >= 40
+                        ? "Pass"
+                        : "Fail";
+
+
+                resultTableBody.innerHTML += `
+                    <tr>
+                        <td>${result.student}</td>
+                        <td>${result.roll}</td>
+                        <td>${result.course}</td>
+                        <td>${result.marks}</td>
+                        <td>${grade}</td>
+                        <td>${status}</td>
+                        <td>
+                            <button
+                                class="action-btn"
+                                onclick="deleteResult('${result.roll}', '${result.course}')">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+
+            });
+
+        }
+
+
+        resultForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                const marks = Number(
+                    document
+                        .getElementById("resultMarks")
+                        .value
+                );
+
+
+                const result = {
+
+                    student: document
+                        .getElementById("resultStudent")
+                        .value.trim(),
+
+                    roll: document
+                        .getElementById("resultRoll")
+                        .value.trim(),
+
+                    course: document
+                        .getElementById("resultCourse")
+                        .value,
+
+                    marks: marks
+
+                };
+
+
+                results.push(result);
+
+                localStorage.setItem(
+                    "results",
+                    JSON.stringify(results)
+                );
+
+                resultForm.reset();
+
+                displayResults();
+
+            }
+        );
+
+
+        searchResult.addEventListener(
+            "input",
+            function () {
+
+                const value = this.value.toLowerCase();
+
+                const filtered = results.filter(
+                    function (result) {
+
+                        return (
+                            result.student
+                                .toLowerCase()
+                                .includes(value) ||
+
+                            result.roll
+                                .toLowerCase()
+                                .includes(value)
+                        );
+
+                    }
+                );
+
+                displayResults(filtered);
+
+            }
+        );
+
+
+        window.deleteResult = function (
+            roll,
+            course
+        ) {
+
+            results = results.filter(
+                function (result) {
+
+                    return !(
+                        result.roll === roll &&
+                        result.course === course
+                    );
+
+                }
+            );
+
+            localStorage.setItem(
+                "results",
+                JSON.stringify(results)
+            );
+
+            displayResults();
+
+        };
+
+
+        displayResults();
+
+    }
+
+});

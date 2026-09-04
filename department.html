@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMS | Department Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <h2>🎓 SUMS</h2>
+            <p>University System</p>
+        </div>
+
+        <nav>
+            <a href="dashboard.html">📊 Dashboard</a>
+            <a href="students.html">👨‍🎓 Students</a>
+            <a href="teachers.html">👨‍🏫 Teachers</a>
+            <a href="courses.html">📚 Courses</a>
+            <a href="departments.html" class="active">🏢 Departments</a>
+            <a href="#">📅 Attendance</a>
+            <a href="#">📝 Results</a>
+            <a href="#">📢 Notices</a>
+            <a href="index.html">🚪 Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Department Management</h1>
+                <p>Manage university departments</p>
+            </div>
+        </header>
+
+        <section class="content-box">
+
+            <h2>Add New Department</h2>
+
+            <form id="departmentForm" class="student-form">
+
+                <input
+                    type="text"
+                    id="departmentName"
+                    placeholder="Department Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="departmentCode"
+                    placeholder="Department Code e.g.

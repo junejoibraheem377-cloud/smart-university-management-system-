@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMS | Course Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <h2>🎓 SUMS</h2>
+            <p>University System</p>
+        </div>
+
+        <nav>
+            <a href="dashboard.html">📊 Dashboard</a>
+            <a href="students.html">👨‍🎓 Students</a>
+            <a href="teachers.html">👨‍🏫 Teachers</a>
+            <a href="courses.html" class="active">📚 Courses</a>
+            <a href="#">🏢 Departments</a>
+            <a href="#">📅 Attendance</a>
+            <a href="#">📝 Results</a>
+            <a href="#">📢 Notices</a>
+            <a href="index.html">🚪 Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Course Management</h1>
+                <p>Manage university courses and instructors</p>
+            </div>
+        </header>
+
+        <section class="content-box">
+
+            <h2>Add New Course</h2>
+
+            <form id="courseForm" class="student-form">
+
+                <input
+                    type="text"
+                    id="courseName"
+                    placeholder="Course Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="courseCode"
+                    placeholder="Course Code e.g. CS-101"
+                    required
+                >
+
+                <select id="courseDepartment" required>
+                    <option value="">Select Department</option>
+                    <option>Computer Science</option>
+                    <option>Software Engineering</option>
+                    <option>Business Administration</option>
+                    <option>Engineering</option>
+                </select>
+
+                <input
+                    type="text"
+                    id="courseTeacher"
+                    placeholder="Instructor Name"
+                    required
+                >
+
+                <button type="submit">
+                    ➕ Add Course
+                </button>
+
+            </form>
+
+        </section>
+
+        <section class="content-box student-list-box">
+
+            <div class="list-header">
+                <h2>All Courses</h2>
+
+                <input
+                    type="text"
+                    id="searchCourse"
+                    placeholder="🔍 Search course..."
+                >
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Course Code</th>
+                            <th>Department</th>
+                            <th>Instructor</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="courseTableBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

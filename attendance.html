@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SUMS | Attendance Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <h2>🎓 SUMS</h2>
+            <p>University System</p>
+        </div>
+
+        <nav>
+            <a href="dashboard.html">📊 Dashboard</a>
+            <a href="students.html">👨‍🎓 Students</a>
+            <a href="teachers.html">👨‍🏫 Teachers</a>
+            <a href="courses.html">📚 Courses</a>
+            <a href="departments.html">🏢 Departments</a>
+
+            <a href="attendance.html" class="active">
+                📅 Attendance
+            </a>
+
+            <a href="#">📝 Results</a>
+            <a href="#">📢 Notices</a>
+
+            <a href="index.html">🚪 Logout</a>
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Attendance Management</h1>
+                <p>Manage and track student attendance</p>
+            </div>
+
+            <div class="admin-profile">
+                <span>👤</span>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <p>Admin</p>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- ATTENDANCE FORM -->
+        <section class="content-box">
+
+            <h2>Mark Attendance</h2>
+
+            <form id="attendanceForm" class="student-form">
+
+                <input
+                    type="text"
+                    id="attendanceStudent"
+                    placeholder="Student Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="attendanceRoll"
+                   

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMS | Student Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <h2>🎓 SUMS</h2>
+            <p>University System</p>
+        </div>
+
+        <nav>
+            <a href="dashboard.html">📊 Dashboard</a>
+            <a href="students.html" class="active">👨‍🎓 Students</a>
+            <a href="#">👨‍🏫 Teachers</a>
+            <a href="#">📚 Courses</a>
+            <a href="#">🏢 Departments</a>
+            <a href="#">📅 Attendance</a>
+            <a href="#">📝 Results</a>
+            <a href="#">📢 Notices</a>
+            <a href="index.html">🚪 Logout</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Student Management</h1>
+                <p>Manage all university students</p>
+            </div>
+        </header>
+
+        <!-- Add Student Form -->
+        <section class="content-box">
+
+            <h2>Add New Student</h2>
+
+            <form id="studentForm" class="student-form">
+
+                <input type="text" id="studentName"
+                    placeholder="Student Name" required>
+
+                <input type="text" id="rollNumber"
+                    placeholder="Roll Number" required>
+
+                <input type="email" id="studentEmail"
+                    placeholder="Email Address" required>
+
+                <select id="department" required>
+                    <option value="">Select Department</option>
+                    <option>Computer Science</option>
+                    <option>Software Engineering</option>
+                    <option>Business Administration</option>
+                    <option>Engineering</option>
+                </select>
+
+                <button type="submit">➕ Add Student</button>
+
+            </form>
+
+        </section>
+
+        <!-- Student List -->
+        <section class="content-box student-list-box">
+
+            <div class="list-header">
+                <h2>All Students</h2>
+
+                <input type="text" id="searchStudent"
+                    placeholder="🔍 Search student...">
+            </div>
+
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Roll No.</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTableBody">
+                        <!-- Students JavaScript se yahan aayenge -->
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

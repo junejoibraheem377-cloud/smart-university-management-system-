@@ -78,7 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
 
             });
-
+            
+alert("JS WORKING");
         }
 
 

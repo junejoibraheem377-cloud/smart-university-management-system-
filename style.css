@@ -502,3 +502,125 @@ td {
         min-width: 650px;
     }
 }
+/* ===== FINAL MOBILE FIX ===== */
+
+@media (max-width: 650px) {
+
+    body {
+        display: block;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .dashboard {
+        display: block;
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 12px;
+    }
+
+    .brand {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+    }
+
+    .brand h2 {
+        font-size: 22px;
+    }
+
+    .brand p {
+        font-size: 12px;
+    }
+
+    .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .sidebar nav a {
+        width: 100%;
+        padding: 10px 5px;
+        font-size: 12px;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 12px;
+        min-width: 0;
+    }
+
+    .topbar {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .topbar h1 {
+        font-size: 20px;
+    }
+
+    .topbar p {
+        font-size: 12px;
+    }
+
+    .admin-profile {
+        width: 100%;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .content-box {
+        width: 100%;
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .student-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .student-form input,
+    .student-form select,
+    .student-form button {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .list-header {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .list-header input {
+        width: 100%;
+    }
+
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 650px;
+    }
+}

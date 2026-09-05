@@ -624,3 +624,24 @@ td {
         min-width: 650px;
     }
 }
+
+#teacherTable {
+    width: 100%;
+    border-collapse: collapse;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#teacherTable th,
+#teacherTable td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+    #teacherTable {
+        font-size: 13px;
+    }
+}

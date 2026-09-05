@@ -397,3 +397,108 @@ td {
         width: 100%;
     }
 }
+
+/* ================================
+   MOBILE RESPONSIVE
+================================ */
+
+@media (max-width: 650px) {
+
+    .dashboard {
+        display: block;
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 15px 10px;
+    }
+
+    .brand {
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+    }
+
+    .brand h2 {
+        font-size: 22px;
+    }
+
+    .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+
+    .sidebar nav a {
+        padding: 10px 8px;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .topbar {
+        padding: 16px;
+        margin-bottom: 15px;
+    }
+
+    .topbar h1 {
+        font-size: 21px;
+    }
+
+    .topbar p {
+        font-size: 13px;
+    }
+
+    .admin-profile {
+        margin-top: 10px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .content-box {
+        padding: 16px;
+        overflow: hidden;
+    }
+
+    .student-form {
+        grid-template-columns: 1fr;
+    }
+
+    .student-form input,
+    .student-form select,
+    .student-form button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .list-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .list-header input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 650px;
+    }
+}

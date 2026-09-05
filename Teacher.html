@@ -21,9 +21,9 @@
         <nav>
             <a href="dashboard.html">📊 Dashboard</a>
             <a href="students.html">👨‍🎓 Students</a>
-            <a href="Teacher.html" class="active">👨‍🏫 Teacher</a>
-            <a href="#">📚 Course</a>
-            <a href="#">🏢 Department</a>
+            <a href="teacher.html" class="active">👨‍🏫 Teachers</a>
+            <a href="course.html">📚 Courses</a>
+            <a href="department.html">🏢 Departments</a>
             <a href="#">📅 Attendance</a>
             <a href="#">📝 Results</a>
             <a href="#">📢 Notices</a>
@@ -47,4 +47,114 @@
 
             <form id="teacherForm" class="student-form">
 
-                <input type="text" id="teacher
+                <input
+                    type="text"
+                    id="teacherName"
+                    placeholder="Teacher Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="teacherId"
+                    placeholder="Teacher ID e.g. T101"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="teacherEmail"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="teacherDepartment"
+                    placeholder="Department"
+                    required
+                >
+
+                <button type="submit">➕ Add Teacher</button>
+
+            </form>
+        </section>
+
+        <!-- All Teachers -->
+        <section class="content-box">
+            <h2>All Teachers</h2>
+
+            <table id="teacherTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Teacher ID</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="teacherTableBody">
+                    <!-- Teachers will be added here dynamically -->
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+    let teachers = JSON.parse(localStorage.getItem('teachers')) || [];
+
+    const form = document.getElementById('teacherForm');
+    const tableBody = document.getElementById('teacherTableBody');
+
+    function renderTable() {
+        tableBody.innerHTML = '';
+        teachers.forEach((t, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${t.name}</td>
+                <td>${t.id}</td>
+                <td>${t.email}</td>
+                <td>${t.department}</td>
+                <td><button onclick="deleteTeacher(${index})">🗑️ Delete</button></td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('teacherName').value.trim();
+        const id = document.getElementById('teacherId').value.trim();
+        const email = document.getElementById('teacherEmail').value.trim();
+        const department = document.getElementById('teacherDepartment').value.trim();
+
+        if (name === '' || id === '' || email === '' || department === '') {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        teachers.push({ name: name, id: id, email: email, department: department });
+        localStorage.setItem('teachers', JSON.stringify(teachers));
+
+        form.reset();
+        renderTable();
+    });
+
+    function deleteTeacher(index) {
+        teachers.splice(index, 1);
+        localStorage.setItem('teachers', JSON.stringify(teachers));
+        renderTable();
+    }
+
+    renderTable();
+</script>
+
+</body>
+</html>

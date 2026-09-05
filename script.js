@@ -1,6 +1,6 @@
 // ==================================================
 // SUMS - SMART UNIVERSITY MANAGEMENT SYSTEM
-// COMBINED JAVASCRIPT
+// COMPLETE COMBINED JAVASCRIPT
 // ==================================================
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -78,8 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
 
             });
-            
-alert("JS WORKING");
+
         }
 
 
@@ -89,24 +88,15 @@ alert("JS WORKING");
 
             const student = {
 
-                name: document
-                    .getElementById("studentName")
-                    .value.trim(),
+                name: document.getElementById("studentName").value.trim(),
 
-                roll: document
-                    .getElementById("rollNumber")
-                    .value.trim(),
+                roll: document.getElementById("rollNumber").value.trim(),
 
-                email: document
-                    .getElementById("studentEmail")
-                    .value.trim(),
+                email: document.getElementById("studentEmail").value.trim(),
 
-                department: document
-                    .getElementById("department")
-                    .value
+                department: document.getElementById("department").value
 
             };
-
 
             students.push(student);
 
@@ -143,7 +133,9 @@ alert("JS WORKING");
         window.deleteStudent = function (roll) {
 
             students = students.filter(function (student) {
+
                 return student.roll !== roll;
+
             });
 
             localStorage.setItem(
@@ -212,24 +204,16 @@ alert("JS WORKING");
 
             const teacher = {
 
-                name: document
-                    .getElementById("teacherName")
-                    .value.trim(),
+                name: document.getElementById("teacherName").value.trim(),
 
-                id: document
-                    .getElementById("teacherId")
-                    .value.trim(),
+                id: document.getElementById("teacherId").value.trim(),
 
-                email: document
-                    .getElementById("teacherEmail")
-                    .value.trim(),
+                email: document.getElementById("teacherEmail").value.trim(),
 
-                department: document
-                    .getElementById("teacherDepartment")
-                    .value
+                department:
+                    document.getElementById("teacherDepartment").value
 
             };
-
 
             teachers.push(teacher);
 
@@ -266,7 +250,9 @@ alert("JS WORKING");
         window.deleteTeacher = function (id) {
 
             teachers = teachers.filter(function (teacher) {
+
                 return teacher.id !== id;
+
             });
 
             localStorage.setItem(
@@ -322,7 +308,7 @@ alert("JS WORKING");
                             </button>
                         </td>
                     </tr>
-                ;
+                `;
 
             });
 
@@ -335,24 +321,17 @@ alert("JS WORKING");
 
             const course = {
 
-                name: document
-                    .getElementById("courseName")
-                    .value.trim(),
+                name: document.getElementById("courseName").value.trim(),
 
-                code: document
-                    .getElementById("courseCode")
-                    .value.trim(),
+                code: document.getElementById("courseCode").value.trim(),
 
-                department: document
-                    .getElementById("courseDepartment")
-                    .value,
+                department:
+                    document.getElementById("courseDepartment").value,
 
-                teacher: document
-                    .getElementById("courseTeacher")
-                    .value.trim()
+                teacher:
+                    document.getElementById("courseTeacher").value.trim()
 
             };
-
 
             courses.push(course);
 
@@ -390,7 +369,9 @@ alert("JS WORKING");
         window.deleteCourse = function (code) {
 
             courses = courses.filter(function (course) {
+
                 return course.code !== code;
+
             });
 
             localStorage.setItem(
@@ -464,24 +445,19 @@ alert("JS WORKING");
 
                 const department = {
 
-                    name: document
-                        .getElementById("departmentName")
-                        .value.trim(),
+                    name:
+                        document.getElementById("departmentName").value.trim(),
 
-                    code: document
-                        .getElementById("departmentCode")
-                        .value.trim(),
+                    code:
+                        document.getElementById("departmentCode").value.trim(),
 
-                    head: document
-                        .getElementById("departmentHead")
-                        .value.trim(),
+                    head:
+                        document.getElementById("departmentHead").value.trim(),
 
-                    students: document
-                        .getElementById("studentCount")
-                        .value
+                    students:
+                        document.getElementById("studentCount").value
 
                 };
-
 
                 departments.push(department);
 
@@ -534,7 +510,9 @@ alert("JS WORKING");
 
             departments = departments.filter(
                 function (department) {
+
                     return department.code !== code;
+
                 }
             );
 
@@ -612,28 +590,32 @@ alert("JS WORKING");
 
                 const record = {
 
-                    student: document
-                        .getElementById("attendanceStudent")
-                        .value.trim(),
+                    student:
+                        document
+                            .getElementById("attendanceStudent")
+                            .value.trim(),
 
-                    roll: document
-                        .getElementById("attendanceRoll")
-                        .value.trim(),
+                    roll:
+                        document
+                            .getElementById("attendanceRoll")
+                            .value.trim(),
 
-                    course: document
-                        .getElementById("attendanceCourse")
-                        .value,
+                    course:
+                        document
+                            .getElementById("attendanceCourse")
+                            .value,
 
-                    date: document
-                        .getElementById("attendanceDate")
-                        .value,
+                    date:
+                        document
+                            .getElementById("attendanceDate")
+                            .value,
 
-                    status: document
-                        .getElementById("attendanceStatus")
-                        .value
+                    status:
+                        document
+                            .getElementById("attendanceStatus")
+                            .value
 
                 };
-
 
                 attendanceRecords.push(record);
 
@@ -796,17 +778,20 @@ alert("JS WORKING");
 
                 const result = {
 
-                    student: document
-                        .getElementById("resultStudent")
-                        .value.trim(),
+                    student:
+                        document
+                            .getElementById("resultStudent")
+                            .value.trim(),
 
-                    roll: document
-                        .getElementById("resultRoll")
-                        .value.trim(),
+                    roll:
+                        document
+                            .getElementById("resultRoll")
+                            .value.trim(),
 
-                    course: document
-                        .getElementById("resultCourse")
-                        .value,
+                    course:
+                        document
+                            .getElementById("resultCourse")
+                            .value,
 
                     marks: marks
 

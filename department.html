@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SUMS | Department Management</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,7 +14,9 @@
 
 <div class="dashboard">
 
+    <!-- Sidebar -->
     <aside class="sidebar">
+
         <div class="brand">
             <h2>🎓 SUMS</h2>
             <p>University System</p>
@@ -20,25 +25,32 @@
         <nav>
             <a href="dashboard.html">📊 Dashboard</a>
             <a href="students.html">👨‍🎓 Students</a>
-            <a href="teacher.html">👨‍🏫 Teachers</a>
+            <a href="Teacher.html">👨‍🏫 Teachers</a>
             <a href="course.html">📚 Courses</a>
             <a href="department.html" class="active">🏢 Departments</a>
-            <a href="#">📅 Attendance</a>
-            <a href="#">📝 Results</a>
-            <a href="#">📢 Notices</a>
+            <a href="attendance.html">📅 Attendance</a>
+            <a href="results.html">📝 Results</a>
             <a href="index.html">🚪 Logout</a>
         </nav>
+
     </aside>
 
+
+    <!-- Main Content -->
     <main class="main-content">
 
+        <!-- Topbar -->
         <header class="topbar">
+
             <div>
                 <h1>Department Management</h1>
                 <p>Manage university departments</p>
             </div>
+
         </header>
 
+
+        <!-- Add Department -->
         <section class="content-box">
 
             <h2>Add New Department</h2>
@@ -59,29 +71,41 @@
                     required
                 >
 
-                <button type="submit">➕ Add Department</button>
+                <button type="submit">
+                    ➕ Add Department
+                </button>
 
             </form>
 
         </section>
 
+
+        <!-- All Departments -->
         <section class="content-box">
 
             <h2>All Departments</h2>
 
-            <table id="departmentTable">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Department Name</th>
-                        <th>Department Code</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="departmentTableBody">
-                    <!-- Departments will be added here dynamically -->
-                </tbody>
-            </table>
+            <!-- Mobile Table Wrapper -->
+            <div class="table-container">
+
+                <table id="departmentTable">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Department Name</th>
+                            <th>Department Code</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="departmentTableBody">
+                        <!-- Departments will appear here -->
+                    </tbody>
+
+                </table>
+
+            </div>
 
         </section>
 
@@ -89,51 +113,100 @@
 
 </div>
 
+
 <script>
-    let departments = JSON.parse(localStorage.getItem('departments')) || [];
 
-    const form = document.getElementById('departmentForm');
-    const tableBody = document.getElementById('departmentTableBody');
+    let departments =
+        JSON.parse(localStorage.getItem("departments")) || [];
 
+    const form =
+        document.getElementById("departmentForm");
+
+    const tableBody =
+        document.getElementById("departmentTableBody");
+
+
+    // Display Departments
     function renderTable() {
-        tableBody.innerHTML = '';
+
+        tableBody.innerHTML = "";
+
         departments.forEach((dept, index) => {
-            const row = document.createElement('tr');
+
+            const row = document.createElement("tr");
+
             row.innerHTML = `
                 <td>${index + 1}</td>
                 <td>${dept.name}</td>
                 <td>${dept.code}</td>
-                <td><button onclick="deleteDepartment(${index})">🗑️ Delete</button></td>
+                <td>
+                    <button
+                        class="action-btn"
+                        onclick="deleteDepartment(${index})">
+                        🗑️ Delete
+                    </button>
+                </td>
             `;
+
             tableBody.appendChild(row);
+
         });
     }
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
 
-        const name = document.getElementById('departmentName').value.trim();
-        const code = document.getElementById('departmentCode').value.trim();
+    // Add Department
+    form.addEventListener("submit", function(event) {
 
-        if (name === '' || code === '') {
-            alert('Please fill in all fields.');
+        event.preventDefault();
+
+        const name =
+            document.getElementById("departmentName").value.trim();
+
+        const code =
+            document.getElementById("departmentCode").value.trim();
+
+
+        if (name === "" || code === "") {
             return;
         }
 
-        departments.push({ name: name, code: code });
-        localStorage.setItem('departments', JSON.stringify(departments));
+
+        departments.push({
+            name: name,
+            code: code
+        });
+
+
+        localStorage.setItem(
+            "departments",
+            JSON.stringify(departments)
+        );
+
 
         form.reset();
+
         renderTable();
+
     });
 
+
+    // Delete Department
     function deleteDepartment(index) {
+
         departments.splice(index, 1);
-        localStorage.setItem('departments', JSON.stringify(departments));
+
+        localStorage.setItem(
+            "departments",
+            JSON.stringify(departments)
+        );
+
         renderTable();
     }
 
+
+    // Load Departments
     renderTable();
+
 </script>
 
 </body>

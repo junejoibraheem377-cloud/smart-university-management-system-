@@ -741,3 +741,62 @@ td {
     }
 
 }
+
+/* =========================================
+   FINAL MOBILE DASHBOARD FIX
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+    }
+
+    .dashboard {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+        overflow-x: hidden !important;
+    }
+
+    .sidebar {
+        width: 100% !important;
+        max-width: 100% !important;
+        position: relative !important;
+        height: auto !important;
+    }
+
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 15px !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+
+    .content-box {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+    }
+
+    .table-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    #departmentTable {
+        width: 650px !important;
+        min-width: 650px !important;
+        max-width: none !important;
+        display: table !important;
+    }
+
+}

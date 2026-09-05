@@ -5,8 +5,8 @@ Smart University Management System (SUMS) is a modern and user-friendly web-base
 🌐 Live Demo
 
 Live Website:
-https://junejoibraheem377-cloud.github.io/smart-university-management-system/
 
+https://junejoibraheem377-cloud.github.io/smart-university-management-system/
 📂 GitHub Repository
 
 Source Code:

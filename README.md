@@ -1,68 +1,68 @@
-🎓 SUMS — Smart University Management System
+🎓 Smart University Management System (SUMS)
 
-A modern and user-friendly Smart University Management System (SUMS) designed to manage university-related information through a clean and responsive web interface.
+Smart University Management System (SUMS) is a modern and user-friendly web-based university management project designed to organize and manage important academic information through a clean and responsive interface.
 
-🚀 Features
+🌐 Live Demo
+
+Live Website:
+https://junejoibraheem377-cloud.github.io/smart-university-management-system/
+
+📂 GitHub Repository
+
+Source Code:
+https://github.com/junejoibraheem377-cloud/smart-university-management-system
+
+✨ Features
 
 - 🔐 Login System
-- 👨‍🎓 Student Management
-- 👨‍🏫 Teacher Management
-- 📚 Course Management
-- 📅 Class & Schedule Management
 - 📊 Dashboard
+- 👨‍🏫 Teacher Management
+- 📅 Teacher Attendance
+- 👨‍🎓 Student Management
+- 📝 Student Results
+- 📚 Course Management
 - 🔎 Search Functionality
-- 📱 Responsive Design
-- ⚡ Interactive JavaScript Interface
+- 📱 Responsive User Interface
+- ⚡ Interactive JavaScript Features
 
 🛠️ Technologies Used
 
-- HTML5 — Website structure
-- CSS3 — Styling and responsive layout
+- HTML5 — Structure and content
+- CSS3 — Styling and responsive design
 - JavaScript — Functionality and interaction
 
-📂 Project Structure
+📂 Project Files
 
-SUMS/
+smart-university-management-system/
 │
-├── index.html
-├── style.css
-├── script.js
+├── HTML Files
+├── CSS Files
+├── JavaScript Files
 └── README.md
-
-💻 How to Run
-
-1. Download or clone this repository.
-2. Open the project folder.
-3. Open "index.html" in any modern web browser.
-4. The SUMS website will start running.
 
 🎯 Project Purpose
 
-The main purpose of SUMS is to provide a simple digital platform for managing university information and making common management tasks easier and more organized.
+The purpose of SUMS is to create a simple and organized digital platform for university management. It demonstrates how HTML, CSS, and JavaScript can be combined to build an interactive university management system.
 
-🌐 Live Website
+🚀 How to Run
 
-You can add your live GitHub Pages link here:
-
-Live Demo: "Your-GitHub-Pages-Link-Here"
-
-📸 Preview
-
-Add screenshots of your project here:
-
-![SUMS Preview](screenshot.png)
+1. Open the GitHub repository.
+2. Download or clone the project.
+3. Open "index.html" in a web browser.
+4. Explore the different sections using the navigation menu.
 
 🔮 Future Improvements
 
-- Student registration and profile system
-- Database integration
-- Admin panel
-- Attendance management
-- Result management
+- Backend and database integration
+- Admin authentication
+- Student registration
+- Teacher profiles
+- Attendance record storage
+- Result database
+- Course enrollment
 - Fee management
-- Online notifications
-- User authentication
-- Backend integration
+- Notifications
+- Role-based access control
 
 👨‍💻 Developer
 
@@ -72,8 +72,8 @@ Aspiring Software Developer | Web Developer
 
 ⭐ Support
 
-If you like this project, consider giving the repository a ⭐ Star on GitHub.
+If you like this project, consider giving the repository a ⭐ Star.
 
 ---
 
-© 2026 SUMS — Smart University Management System
+© 2026 Smart University Management System

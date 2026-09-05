@@ -633,36 +633,32 @@ td {
     white-space: nowrap;
 }
 
-
-/* ===== TEACHER TABLE MOBILE FIX ===== */
-
-#teacherTable {
-    width: 100%;
-    border-collapse: collapse;
-    white-space: nowrap;
-}
-
+/* Teacher Table Mobile Fix */
 .table-container {
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
 
+#teacherTable {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
 #teacherTable th,
 #teacherTable td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #e2e8f0;
 }
 
 @media (max-width: 650px) {
+    .table-container {
+        overflow-x: auto;
+    }
 
     #teacherTable {
         min-width: 700px;
-        font-size: 13px;
-    }
-
-    .table-container {
-        overflow-x: auto;
     }
 }

@@ -704,3 +704,40 @@ td {
         min-width: 700px !important;
     }
 }
+/* =================================
+   DEPARTMENT TABLE MOBILE FIX
+   ================================= */
+
+#departmentTable {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+#departmentTable th,
+#departmentTable td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 650px) {
+
+    .content-box {
+        overflow: visible !important;
+    }
+
+    .table-container {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #departmentTable {
+        display: table !important;
+        width: 700px !important;
+        min-width: 700px !important;
+    }
+
+}

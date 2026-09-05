@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SUMS | Teacher Management</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,6 +16,7 @@
 
     <!-- Sidebar -->
     <aside class="sidebar">
+
         <div class="brand">
             <h2>🎓 SUMS</h2>
             <p>University System</p>
@@ -24,25 +28,31 @@
             <a href="Teacher.html" class="active">👨‍🏫 Teachers</a>
             <a href="course.html">📚 Courses</a>
             <a href="department.html">🏢 Departments</a>
-            <a href="#">📅 Attendance</a>
-            <a href="#">📝 Results</a>
-            <a href="#">📢 Notices</a>
+            <a href="attendance.html">📅 Attendance</a>
+            <a href="results.html">📝 Results</a>
             <a href="index.html">🚪 Logout</a>
         </nav>
+
     </aside>
+
 
     <!-- Main Content -->
     <main class="main-content">
 
+        <!-- Topbar -->
         <header class="topbar">
+
             <div>
                 <h1>Teacher Management</h1>
                 <p>Manage all university teachers</p>
             </div>
+
         </header>
+
 
         <!-- Add Teacher -->
         <section class="content-box">
+
             <h2>Add New Teacher</h2>
 
             <form id="teacherForm" class="student-form">
@@ -75,86 +85,57 @@
                     required
                 >
 
-                <button type="submit">➕ Add Teacher</button>
+                <button type="submit">
+                    ➕ Add Teacher
+                </button>
 
             </form>
+
         </section>
+
 
         <!-- All Teachers -->
         <section class="content-box">
+
             <h2>All Teachers</h2>
 
-            <table id="teacherTable">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Teacher ID</th>
-                        <th>Email</th>
-                        <th>Department</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="teacherTableBody">
-                    <!-- Teachers will be added here dynamically -->
-                </tbody>
-            </table>
+            <!-- IMPORTANT: Mobile Table Wrapper -->
+            <div class="table-container">
+
+                <table id="teacherTable">
+
+                    <thead>
+
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Teacher ID</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="teacherTableBody">
+
+                        <!-- Teachers will appear here -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
         </section>
 
     </main>
 
 </div>
 
-<script>
-    let teachers = JSON.parse(localStorage.getItem('teachers')) || [];
 
-    const form = document.getElementById('teacherForm');
-    const tableBody = document.getElementById('teacherTableBody');
-
-    function renderTable() {
-        tableBody.innerHTML = '';
-        teachers.forEach((t, index) => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${index + 1}</td>
-                <td>${t.name}</td>
-                <td>${t.id}</td>
-                <td>${t.email}</td>
-                <td>${t.department}</td>
-                <td><button onclick="deleteTeacher(${index})">🗑️ Delete</button></td>
-            `;
-            tableBody.appendChild(row);
-        });
-    }
-
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const name = document.getElementById('teacherName').value.trim();
-        const id = document.getElementById('teacherId').value.trim();
-        const email = document.getElementById('teacherEmail').value.trim();
-        const department = document.getElementById('teacherDepartment').value.trim();
-
-        if (name === '' || id === '' || email === '' || department === '') {
-            alert('Please fill in all fields.');
-            return;
-        }
-
-        teachers.push({ name: name, id: id, email: email, department: department });
-        localStorage.setItem('teachers', JSON.stringify(teachers));
-
-        form.reset();
-        renderTable();
-    });
-
-    function deleteTeacher(index) {
-        teachers.splice(index, 1);
-        localStorage.setItem('teachers', JSON.stringify(teachers));
-        renderTable();
-    }
-
-    renderTable();
-</script>
+<!-- JavaScript -->
+<script src="script.js"></script>
 
 </body>
 </html>

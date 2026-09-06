@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SUMS | Course Management</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,32 +17,69 @@
 <div class="dashboard">
 
     <aside class="sidebar">
+
         <div class="brand">
-            <h2>🎓 SUMS</h2>
+            <h2>
+                <i class="fa-solid fa-graduation-cap"></i> SUMS
+            </h2>
+
             <p>University System</p>
         </div>
 
         <nav>
-            <a href="dashboard.html">📊 Dashboard</a>
-            <a href="students.html">👨‍🎓 Students</a>
-            <a href="teachers.html">👨‍🏫 Teachers</a>
-            <a href="courses.html" class="active">📚 Courses</a>
-            <a href="departments.html">🏢 Departments</a>
-            <a href="attendance.html">📅 Attendance</a>
-            <a href="results.html">📝 Results</a>
-            <a href="#">📢 Notices</a>
-            <a href="index.html">🚪 Logout</a>
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-chart-line"></i> Dashboard
+            </a>
+
+            <a href="students.html">
+                <i class="fa-solid fa-user-graduate"></i> Students
+            </a>
+
+            <a href="Teacher.html">
+                <i class="fa-solid fa-chalkboard-user"></i> Teachers
+            </a>
+
+            <a href="course.html" class="active">
+                <i class="fa-solid fa-book"></i> Courses
+            </a>
+
+            <a href="department.html">
+                <i class="fa-solid fa-building"></i> Departments
+            </a>
+
+            <a href="attendance.html">
+                <i class="fa-solid fa-calendar-check"></i> Attendance
+            </a>
+
+            <a href="results.html">
+                <i class="fa-solid fa-file-lines"></i> Results
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-bullhorn"></i> Notices
+            </a>
+
+            <a href="index.html">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+
         </nav>
+
     </aside>
+
 
     <main class="main-content">
 
         <header class="topbar">
+
             <div>
                 <h1>Course Management</h1>
                 <p>Manage university courses and instructors</p>
             </div>
+
         </header>
+
 
         <!-- ADD COURSE -->
 
@@ -62,8 +104,15 @@
                 >
 
                 <select id="courseDepartment" required>
-                    <option value="">Select Department</option>
-                    <option value="IT">IT</option>
+
+                    <option value="">
+                        Select Department
+                    </option>
+
+                    <option value="IT">
+                        IT
+                    </option>
+
                 </select>
 
                 <input
@@ -74,18 +123,35 @@
                 >
 
                 <select id="courseSemester" required>
-                    <option value="">Select Semester</option>
-                    <option value="2nd">2nd</option>
+
+                    <option value="">
+                        Select Semester
+                    </option>
+
+                    <option value="2nd">
+                        2nd
+                    </option>
+
                 </select>
 
                 <select id="courseCredits" required>
-                    <option value="">Select Credits</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+
+                    <option value="">
+                        Select Credits
+                    </option>
+
+                    <option value="2">
+                        2
+                    </option>
+
+                    <option value="3">
+                        3
+                    </option>
+
                 </select>
 
                 <button type="submit">
-                    ➕ Add Course
+                    <i class="fa-solid fa-plus"></i> Add Course
                 </button>
 
             </form>
@@ -104,10 +170,11 @@
                 <input
                     type="text"
                     id="searchCourse"
-                    placeholder="🔍 Search course..."
+                    placeholder="Search course..."
                 >
 
             </div>
+
 
             <div class="table-container">
 
@@ -139,6 +206,7 @@
     </main>
 
 </div>
+
 
 <script src="script.js"></script>
 

@@ -1,15 +1,34 @@
-// ==================================================
-// SUMS - SMART UNIVERSITY MANAGEMENT SYSTEM
-// COMPLETE JAVASCRIPT
-// ==================================================
-
 document.addEventListener("DOMContentLoaded", function () {
 
     // ==================================================
-    // LOGIN
+    // LOGIN / SIGNUP (Firebase)
     // ==================================================
 
     const loginForm = document.getElementById("loginForm");
+    const signupForm = document.getElementById("signupForm");
+    const toggleForm = document.getElementById("toggleForm");
+
+    if (toggleForm) {
+
+        toggleForm.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            const isLoginVisible = loginForm.style.display !== "none";
+
+            if (isLoginVisible) {
+                loginForm.style.display = "none";
+                signupForm.style.display = "block";
+                toggleForm.textContent = "Already have an account? Login";
+            } else {
+                loginForm.style.display = "block";
+                signupForm.style.display = "none";
+                toggleForm.textContent = "Don't have an account? Sign Up";
+            }
+
+        });
+
+    }
 
     if (loginForm) {
 
@@ -20,16 +39,39 @@ document.addEventListener("DOMContentLoaded", function () {
             const email = document.getElementById("email").value.trim();
             const password = document.getElementById("password").value.trim();
 
-            if (email === "admin@sums.com" && password === "admin123") {
+            window.firebaseLogin(email, password)
+                .then(function () {
+                    alert("Login Successful! Welcome to SUMS.");
+                    window.location.href = "dashboard.html";
+                })
+                .catch(function (error) {
+                    alert("Login Failed: " + error.message);
+                });
 
-                alert("Login Successful! Welcome to SUMS.");
-                window.location.href = "dashboard.html";
+        });
 
-            } else {
+    }
 
-                alert("Invalid Email or Password!");
+    if (signupForm) {
 
-            }
+        signupForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("signupEmail").value.trim();
+            const password = document.getElementById("signupPassword").value.trim();
+
+            window.firebaseSignUp(email, password)
+                .then(function () {
+                    alert("Account Created! You can now login.");
+                    signupForm.reset();
+                    signupForm.style.display = "none";
+                    loginForm.style.display = "block";
+                    toggleForm.textContent = "Don't have an account? Sign Up";
+                })
+                .catch(function (error) {
+                    alert("Signup Failed: " + error.message);
+                });
 
         });
 

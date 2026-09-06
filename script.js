@@ -1,6 +1,6 @@
 // ==================================================
 // SUMS - SMART UNIVERSITY MANAGEMENT SYSTEM
-// COMPLETE COMBINED JAVASCRIPT
+// COMPLETE JAVASCRIPT
 // ==================================================
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (email === "admin@sums.com" && password === "admin123") {
 
                 alert("Login Successful! Welcome to SUMS.");
-
                 window.location.href = "dashboard.html";
 
             } else {
@@ -273,6 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
+        // TEACHER TABLE
         function displayTeachers(teacherList = teachers) {
 
             teacherTableBody.innerHTML = "";
@@ -300,6 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
+        // ADD TEACHER
         teacherForm.addEventListener("submit", function (event) {
 
             event.preventDefault();
@@ -324,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 department:
                     document
                         .getElementById("teacherDepartment")
-                        .value
+                        .value.trim()
 
             };
 
@@ -342,6 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
+        // SEARCH TEACHER
         searchTeacher.addEventListener("input", function () {
 
             const value = this.value.toLowerCase();
@@ -350,7 +352,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 return (
                     teacher.name.toLowerCase().includes(value) ||
-                    teacher.id.toLowerCase().includes(value)
+                    teacher.id.toLowerCase().includes(value) ||
+                    teacher.email.toLowerCase().includes(value) ||
+                    teacher.department.toLowerCase().includes(value)
                 );
 
             });
@@ -360,6 +364,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
+        // DELETE TEACHER
         window.deleteTeacher = function (id) {
 
             teachers = teachers.filter(function (teacher) {
@@ -539,7 +544,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         .value
 
             };
-
 
             courses.push(course);
 

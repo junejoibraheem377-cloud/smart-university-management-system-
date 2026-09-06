@@ -88,13 +88,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const student = {
 
-                name: document.getElementById("studentName").value.trim(),
+                name:
+                    document.getElementById("studentName").value.trim(),
 
-                roll: document.getElementById("rollNumber").value.trim(),
+                roll:
+                    document.getElementById("rollNumber").value.trim(),
 
-                email: document.getElementById("studentEmail").value.trim(),
+                email:
+                    document.getElementById("studentEmail").value.trim(),
 
-                department: document.getElementById("department").value
+                department:
+                    document.getElementById("department").value
 
             };
 
@@ -154,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ==================================================
-    // TEACHER MANAGEMENT
+    // FACULTY / TEACHER MANAGEMENT
     // ==================================================
 
     const teacherForm = document.getElementById("teacherForm");
@@ -204,11 +208,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const teacher = {
 
-                name: document.getElementById("teacherName").value.trim(),
+                name:
+                    document.getElementById("teacherName").value.trim(),
 
-                id: document.getElementById("teacherId").value.trim(),
+                id:
+                    document.getElementById("teacherId").value.trim(),
 
-                email: document.getElementById("teacherEmail").value.trim(),
+                email:
+                    document.getElementById("teacherEmail").value.trim(),
 
                 department:
                     document.getElementById("teacherDepartment").value
@@ -300,6 +307,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         <td>${course.code}</td>
                         <td>${course.department}</td>
                         <td>${course.teacher}</td>
+                        <td>${course.semester}</td>
+                        <td>${course.credits}</td>
                         <td>
                             <button
                                 class="action-btn"
@@ -321,17 +330,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const course = {
 
-                name: document.getElementById("courseName").value.trim(),
+                name:
+                    document
+                        .getElementById("courseName")
+                        .value.trim(),
 
-                code: document.getElementById("courseCode").value.trim(),
+                code:
+                    document
+                        .getElementById("courseCode")
+                        .value.trim(),
 
                 department:
-                    document.getElementById("courseDepartment").value,
+                    document
+                        .getElementById("courseDepartment")
+                        .value,
 
                 teacher:
-                    document.getElementById("courseTeacher").value.trim()
+                    document
+                        .getElementById("courseTeacher")
+                        .value.trim(),
+
+                semester:
+                    document
+                        .getElementById("courseSemester")
+                        .value,
+
+                credits:
+                    document
+                        .getElementById("courseCredits")
+                        .value
 
             };
+
 
             courses.push(course);
 
@@ -446,16 +476,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 const department = {
 
                     name:
-                        document.getElementById("departmentName").value.trim(),
+                        document
+                            .getElementById("departmentName")
+                            .value.trim(),
 
                     code:
-                        document.getElementById("departmentCode").value.trim(),
+                        document
+                            .getElementById("departmentCode")
+                            .value.trim(),
 
                     head:
-                        document.getElementById("departmentHead").value.trim(),
+                        document
+                            .getElementById("departmentHead")
+                            .value.trim(),
 
                     students:
-                        document.getElementById("studentCount").value
+                        document
+                            .getElementById("studentCount")
+                            .value
 
                 };
 

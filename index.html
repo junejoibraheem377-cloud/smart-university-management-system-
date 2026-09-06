@@ -1,10 +1,14 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUMS | Smart University Management System</title><link rel="stylesheet" href="style.css">
+    <title>SUMS | Smart University Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-</head><body><div class="login-container">
+<div class="login-container">
 
     <div class="login-box">
 
@@ -13,6 +17,7 @@
             <p>Smart University Management System</p>
         </div>
 
+        <!-- LOGIN FORM -->
         <form id="loginForm">
 
             <div class="input-group">
@@ -29,13 +34,33 @@
                 <label>
                     <input type="checkbox"> Remember me
                 </label>
-
                 <a href="#">Forgot Password?</a>
             </div>
 
             <button type="submit">Login</button>
 
         </form>
+
+        <!-- SIGNUP FORM (hidden by default) -->
+        <form id="signupForm" style="display:none;">
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="signupEmail" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="signupPassword" placeholder="Create a password (min 6 characters)" required>
+            </div>
+
+            <button type="submit">Sign Up</button>
+
+        </form>
+
+        <p class="footer-text">
+            <a href="#" id="toggleForm">Don't have an account? Sign Up</a>
+        </p>
 
         <p class="footer-text">
             © 2026 Smart University Management System
@@ -44,6 +69,37 @@
     </div>
 
 </div>
+
+<!-- FIREBASE SETUP -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCzPZu6gbk42EZclNd4bI-5jmuH7Ukm1jU",
+        authDomain: "smart-university-a1b5a.firebaseapp.com",
+        projectId: "smart-university-a1b5a",
+        storageBucket: "smart-university-a1b5a.firebasestorage.app",
+        messagingSenderId: "203677101479",
+        appId: "1:203677101479:web:4355442b2b46251f6b5a82"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Expose functions globally so script.js (non-module) can use them
+    window.firebaseSignUp = function (email, password) {
+        return createUserWithEmailAndPassword(auth, email, password);
+    };
+
+    window.firebaseLogin = function (email, password) {
+        return signInWithEmailAndPassword(auth, email, password);
+    };
+</script>
 
 <script src="script.js"></script>
 

@@ -7,7 +7,6 @@
 
     <title>SUMS | Teacher Management</title>
 
-    
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,21 +18,21 @@
     <aside class="sidebar">
 
         <div class="brand">
-            <h2><i class="fa-solid fa-graduation-cap"></i> SUMS</h2>
+            <h2>🎓 SUMS</h2>
             <p>University System</p>
         </div>
 
-     <nav>
-    <a href="dashboard.html">📊 Dashboard</a>
-    <a href="students.html">👨‍🎓 Students</a>
-    <a href="Teacher.html" class="active">👨‍🏫 Teachers</a>
-    <a href="course.html">📚 Courses</a>
-    <a href="department.html">🏢 Departments</a>
-    <a href="attendance.html">📅 Attendance</a>
-    <a href="results.html">📝 Results</a>
-    <a href="#">📢 Notices</a>
-    <a href="index.html">🚪 Logout</a>
-</nav>
+        <nav>
+            <a href="dashboard.html">📊 Dashboard</a>
+            <a href="students.html">👨‍🎓 Students</a>
+            <a href="Teacher.html" class="active">👨‍🏫 Teachers</a>
+            <a href="course.html">📚 Courses</a>
+            <a href="department.html">🏢 Departments</a>
+            <a href="attendance.html">📅 Attendance</a>
+            <a href="results.html">📝 Results</a>
+            <a href="#">📢 Notices</a>
+            <a href="index.html">🚪 Logout</a>
+        </nav>
 
     </aside>
 
@@ -88,7 +87,7 @@
                 >
 
                 <button type="submit">
-                    <i class="fa-solid fa-plus"></i> Add Teacher
+                    ➕ Add Teacher
                 </button>
 
             </form>
@@ -108,20 +107,21 @@
                 placeholder="Search teacher..."
             >
 
-            <!-- Mobile Table Wrapper -->
+            <!-- Table -->
             <div class="table-container">
 
                 <table id="teacherTable">
 
-<thead>
-    <tr>
-        <th>Name</th>
-        <th>Teacher ID</th>
-        <th>Email</th>
-        <th>Department</th>
-        <th>Action</th>
-    </tr>
-</thead>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Teacher ID</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
                     <tbody id="teacherTableBody">
 
                         <!-- Teachers will appear here -->

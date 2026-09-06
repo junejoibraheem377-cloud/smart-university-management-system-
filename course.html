@@ -22,9 +22,9 @@
             <a href="students.html">👨‍🎓 Students</a>
             <a href="teachers.html">👨‍🏫 Teachers</a>
             <a href="courses.html" class="active">📚 Courses</a>
-            <a href="#">🏢 Departments</a>
-            <a href="#">📅 Attendance</a>
-            <a href="#">📝 Results</a>
+            <a href="departments.html">🏢 Departments</a>
+            <a href="attendance.html">📅 Attendance</a>
+            <a href="results.html">📝 Results</a>
             <a href="#">📢 Notices</a>
             <a href="index.html">🚪 Logout</a>
         </nav>
@@ -38,6 +38,8 @@
                 <p>Manage university courses and instructors</p>
             </div>
         </header>
+
+        <!-- ADD COURSE -->
 
         <section class="content-box">
 
@@ -55,24 +57,32 @@
                 <input
                     type="text"
                     id="courseCode"
-                    placeholder="Course Code e.g. CS-101"
+                    placeholder="Course Code"
                     required
                 >
 
                 <select id="courseDepartment" required>
                     <option value="">Select Department</option>
-                    <option>Computer Science</option>
-                    <option>Software Engineering</option>
-                    <option>Business Administration</option>
-                    <option>Engineering</option>
+                    <option value="IT">IT</option>
                 </select>
 
                 <input
                     type="text"
                     id="courseTeacher"
-                    placeholder="Instructor Name"
+                    placeholder="Teacher Name"
                     required
                 >
+
+                <select id="courseSemester" required>
+                    <option value="">Select Semester</option>
+                    <option value="2nd">2nd</option>
+                </select>
+
+                <select id="courseCredits" required>
+                    <option value="">Select Credits</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
 
                 <button type="submit">
                     ➕ Add Course
@@ -82,9 +92,13 @@
 
         </section>
 
+
+        <!-- COURSE LIST -->
+
         <section class="content-box student-list-box">
 
             <div class="list-header">
+
                 <h2>All Courses</h2>
 
                 <input
@@ -92,6 +106,7 @@
                     id="searchCourse"
                     placeholder="🔍 Search course..."
                 >
+
             </div>
 
             <div class="table-container">
@@ -99,13 +114,17 @@
                 <table>
 
                     <thead>
+
                         <tr>
                             <th>Course Name</th>
                             <th>Course Code</th>
                             <th>Department</th>
-                            <th>Instructor</th>
+                            <th>Teacher</th>
+                            <th>Semester</th>
+                            <th>Credits</th>
                             <th>Action</th>
                         </tr>
+
                     </thead>
 
                     <tbody id="courseTableBody">

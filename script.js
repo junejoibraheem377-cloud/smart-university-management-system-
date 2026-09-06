@@ -51,8 +51,52 @@ document.addEventListener("DOMContentLoaded", function () {
         const searchStudent =
             document.getElementById("searchStudent");
 
+        const defaultStudents = [
+            {
+                name: "Ibrahim Junejo",
+                roll: "IT-001",
+                email: "ibrahim@sums.com",
+                department: "IT"
+            },
+            {
+                name: "Abdul Rehman",
+                roll: "IT-002",
+                email: "abdulrehman@sums.com",
+                department: "IT"
+            },
+            {
+                name: "Ali Raza",
+                roll: "IT-003",
+                email: "aliraza@sums.com",
+                department: "IT"
+            },
+            {
+                name: "Muhammad Ahmed",
+                roll: "IT-004",
+                email: "ahmed@sums.com",
+                department: "IT"
+            },
+            {
+                name: "Hamza Khan",
+                roll: "IT-005",
+                email: "hamza@sums.com",
+                department: "IT"
+            }
+        ];
+
         let students =
-            JSON.parse(localStorage.getItem("students")) || [];
+            JSON.parse(localStorage.getItem("students"));
+
+        if (!students) {
+
+            students = defaultStudents;
+
+            localStorage.setItem(
+                "students",
+                JSON.stringify(students)
+            );
+
+        }
 
 
         function displayStudents(studentList = students) {
@@ -89,16 +133,24 @@ document.addEventListener("DOMContentLoaded", function () {
             const student = {
 
                 name:
-                    document.getElementById("studentName").value.trim(),
+                    document
+                        .getElementById("studentName")
+                        .value.trim(),
 
                 roll:
-                    document.getElementById("rollNumber").value.trim(),
+                    document
+                        .getElementById("rollNumber")
+                        .value.trim(),
 
                 email:
-                    document.getElementById("studentEmail").value.trim(),
+                    document
+                        .getElementById("studentEmail")
+                        .value.trim(),
 
                 department:
-                    document.getElementById("department").value
+                    document
+                        .getElementById("department")
+                        .value
 
             };
 
@@ -171,8 +223,52 @@ document.addEventListener("DOMContentLoaded", function () {
         const searchTeacher =
             document.getElementById("searchTeacher");
 
+        const defaultTeachers = [
+            {
+                name: "Ma'am Chandini Talpur",
+                id: "T-101",
+                email: "chandini@sums.com",
+                department: "IT"
+            },
+            {
+                name: "Dr. Sharafuddin Talpur",
+                id: "T-102",
+                email: "sharafuddin@sums.com",
+                department: "IT"
+            },
+            {
+                name: "Ma'am Kainat",
+                id: "T-103",
+                email: "kainat@sums.com",
+                department: "IT"
+            },
+            {
+                name: "Ma'am Sidratul Muntah",
+                id: "T-104",
+                email: "sidratul@sums.com",
+                department: "IT"
+            },
+            {
+                name: "Ma'am Sabira",
+                id: "T-105",
+                email: "sabira@sums.com",
+                department: "IT"
+            }
+        ];
+
         let teachers =
-            JSON.parse(localStorage.getItem("teachers")) || [];
+            JSON.parse(localStorage.getItem("teachers"));
+
+        if (!teachers) {
+
+            teachers = defaultTeachers;
+
+            localStorage.setItem(
+                "teachers",
+                JSON.stringify(teachers)
+            );
+
+        }
 
 
         function displayTeachers(teacherList = teachers) {
@@ -209,16 +305,24 @@ document.addEventListener("DOMContentLoaded", function () {
             const teacher = {
 
                 name:
-                    document.getElementById("teacherName").value.trim(),
+                    document
+                        .getElementById("teacherName")
+                        .value.trim(),
 
                 id:
-                    document.getElementById("teacherId").value.trim(),
+                    document
+                        .getElementById("teacherId")
+                        .value.trim(),
 
                 email:
-                    document.getElementById("teacherEmail").value.trim(),
+                    document
+                        .getElementById("teacherEmail")
+                        .value.trim(),
 
                 department:
-                    document.getElementById("teacherDepartment").value
+                    document
+                        .getElementById("teacherDepartment")
+                        .value
 
             };
 
@@ -291,8 +395,70 @@ document.addEventListener("DOMContentLoaded", function () {
         const searchCourse =
             document.getElementById("searchCourse");
 
+        const defaultCourses = [
+            {
+                name: "OOP",
+                code: "WD-102",
+                department: "IT",
+                teacher: "Ma'am Chandini Talpur",
+                semester: "2nd",
+                credits: "3"
+            },
+            {
+                name: "DLD",
+                code: "WD-103",
+                department: "IT",
+                teacher: "Ma'am Chandini Talpur",
+                semester: "2nd",
+                credits: "3"
+            },
+            {
+                name: "Sufism & Modern Science",
+                code: "WD-104",
+                department: "IT",
+                teacher: "Dr. Sharafuddin Talpur",
+                semester: "2nd",
+                credits: "3"
+            },
+            {
+                name: "Mathematics Foundation",
+                code: "WD-105",
+                department: "IT",
+                teacher: "Ma'am Kainat",
+                semester: "2nd",
+                credits: "2"
+            },
+            {
+                name: "Pakistan Studies",
+                code: "PS-101",
+                department: "IT",
+                teacher: "Ma'am Sidratul Muntah",
+                semester: "2nd",
+                credits: "2"
+            },
+            {
+                name: "Islamic Studies",
+                code: "IS-101",
+                department: "IT",
+                teacher: "Ma'am Sabira",
+                semester: "2nd",
+                credits: "2"
+            }
+        ];
+
         let courses =
-            JSON.parse(localStorage.getItem("courses")) || [];
+            JSON.parse(localStorage.getItem("courses"));
+
+        if (!courses) {
+
+            courses = defaultCourses;
+
+            localStorage.setItem(
+                "courses",
+                JSON.stringify(courses)
+            );
+
+        }
 
 
         function displayCourses(courseList = courses) {

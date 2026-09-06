@@ -59,27 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 department: "IT"
             },
             {
-                name: "Abdul Rehman",
+                name: "Musa",
                 roll: "IT-002",
-                email: "abdulrehman@sums.com",
-                department: "IT"
-            },
-            {
-                name: "Ali Raza",
-                roll: "IT-003",
-                email: "aliraza@sums.com",
-                department: "IT"
-            },
-            {
-                name: "Muhammad Ahmed",
-                roll: "IT-004",
-                email: "ahmed@sums.com",
-                department: "IT"
-            },
-            {
-                name: "Hamza Khan",
-                roll: "IT-005",
-                email: "hamza@sums.com",
+                email: "musa@sums.com",
                 department: "IT"
             }
         ];
@@ -87,16 +69,26 @@ document.addEventListener("DOMContentLoaded", function () {
         let students =
             JSON.parse(localStorage.getItem("students"));
 
-        if (!students) {
-
-            students = defaultStudents;
-
-            localStorage.setItem(
-                "students",
-                JSON.stringify(students)
-            );
-
+        if (!Array.isArray(students)) {
+            students = [];
         }
+
+        defaultStudents.forEach(function (defaultStudent) {
+
+            const exists = students.some(function (student) {
+                return student.roll === defaultStudent.roll;
+            });
+
+            if (!exists) {
+                students.push(defaultStudent);
+            }
+
+        });
+
+        localStorage.setItem(
+            "students",
+            JSON.stringify(students)
+        );
 
 
         function displayStudents(studentList = students) {
@@ -259,16 +251,26 @@ document.addEventListener("DOMContentLoaded", function () {
         let teachers =
             JSON.parse(localStorage.getItem("teachers"));
 
-        if (!teachers) {
-
-            teachers = defaultTeachers;
-
-            localStorage.setItem(
-                "teachers",
-                JSON.stringify(teachers)
-            );
-
+        if (!Array.isArray(teachers)) {
+            teachers = [];
         }
+
+        defaultTeachers.forEach(function (defaultTeacher) {
+
+            const exists = teachers.some(function (teacher) {
+                return teacher.id === defaultTeacher.id;
+            });
+
+            if (!exists) {
+                teachers.push(defaultTeacher);
+            }
+
+        });
+
+        localStorage.setItem(
+            "teachers",
+            JSON.stringify(teachers)
+        );
 
 
         function displayTeachers(teacherList = teachers) {
@@ -449,16 +451,26 @@ document.addEventListener("DOMContentLoaded", function () {
         let courses =
             JSON.parse(localStorage.getItem("courses"));
 
-        if (!courses) {
-
-            courses = defaultCourses;
-
-            localStorage.setItem(
-                "courses",
-                JSON.stringify(courses)
-            );
-
+        if (!Array.isArray(courses)) {
+            courses = [];
         }
+
+        defaultCourses.forEach(function (defaultCourse) {
+
+            const exists = courses.some(function (course) {
+                return course.code === defaultCourse.code;
+            });
+
+            if (!exists) {
+                courses.push(defaultCourse);
+            }
+
+        });
+
+        localStorage.setItem(
+            "courses",
+            JSON.stringify(courses)
+        );
 
 
         function displayCourses(courseList = courses) {

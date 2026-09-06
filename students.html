@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SUMS | Student Management</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,49 +19,53 @@
     <aside class="sidebar">
 
         <div class="brand">
-            <h2>🎓 SUMS</h2>
+            <h2>
+                <i class="fa-solid fa-graduation-cap"></i> SUMS
+            </h2>
+
             <p>University System</p>
         </div>
 
-    <nav>
 
-    <a href="dashboard.html">
-        <i class="fa-solid fa-chart-line"></i> Dashboard
-    </a>
+        <nav>
 
-    <a href="students.html" class="active">
-        <i class="fa-solid fa-user-graduate"></i> Students
-    </a>
+            <a href="dashboard.html">
+                <i class="fa-solid fa-chart-line"></i> Dashboard
+            </a>
 
-    <a href="Teacher.html">
-        <i class="fa-solid fa-chalkboard-user"></i> Teachers
-    </a>
+            <a href="students.html" class="active">
+                <i class="fa-solid fa-user-graduate"></i> Students
+            </a>
 
-    <a href="course.html">
-        <i class="fa-solid fa-book"></i> Courses
-    </a>
+            <a href="Teacher.html">
+                <i class="fa-solid fa-chalkboard-user"></i> Teachers
+            </a>
 
-    <a href="department.html">
-        <i class="fa-solid fa-building"></i> Departments
-    </a>
+            <a href="course.html">
+                <i class="fa-solid fa-book"></i> Courses
+            </a>
 
-    <a href="attendance.html">
-        <i class="fa-solid fa-calendar-check"></i> Attendance
-    </a>
+            <a href="department.html">
+                <i class="fa-solid fa-building"></i> Departments
+            </a>
 
-    <a href="results.html">
-        <i class="fa-solid fa-file-lines"></i> Results
-    </a>
+            <a href="attendance.html">
+                <i class="fa-solid fa-calendar-check"></i> Attendance
+            </a>
 
-    <a href="#">
-        <i class="fa-solid fa-bullhorn"></i> Notices
-    </a>
+            <a href="results.html">
+                <i class="fa-solid fa-file-lines"></i> Results
+            </a>
 
-    <a href="index.html">
-        <i class="fa-solid fa-right-from-bracket"></i> Logout
-    </a>
+            <a href="#">
+                <i class="fa-solid fa-bullhorn"></i> Notices
+            </a>
 
-</nav>
+            <a href="index.html">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+
+        </nav>
 
     </aside>
 
@@ -73,13 +80,18 @@
                 <p>Manage all university students</p>
             </div>
 
+
             <div class="admin-profile">
-                <span>👤</span>
+
+                <span>
+                    <i class="fa-solid fa-user-shield"></i>
+                </span>
 
                 <div>
                     <strong>Administrator</strong>
                     <p>Admin</p>
                 </div>
+
             </div>
 
         </header>
@@ -90,6 +102,7 @@
 
             <h2>Add New Student</h2>
 
+
             <form id="studentForm" class="student-form">
 
                 <input
@@ -99,6 +112,7 @@
                     required
                 >
 
+
                 <input
                     type="text"
                     id="rollNumber"
@@ -106,12 +120,14 @@
                     required
                 >
 
+
                 <input
                     type="email"
                     id="studentEmail"
                     placeholder="Email Address"
                     required
                 >
+
 
                 <select id="department" required>
 
@@ -137,8 +153,9 @@
 
                 </select>
 
+
                 <button type="submit">
-                    ➕ Add Student
+                    <i class="fa-solid fa-plus"></i> Add Student
                 </button>
 
             </form>
@@ -153,10 +170,11 @@
 
                 <h2>All Students</h2>
 
+
                 <input
                     type="text"
                     id="searchStudent"
-                    placeholder="🔍 Search student..."
+                    placeholder="Search student..."
                 >
 
             </div>
@@ -177,6 +195,7 @@
                         </tr>
 
                     </thead>
+
 
                     <tbody id="studentTableBody">
                     </tbody>
